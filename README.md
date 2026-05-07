@@ -12,8 +12,6 @@
 
 Modifications to the [Dodge the Creeps](https://docs.godotengine.org/en/stable/getting_started/first_2d_game/index.html) Godot tutorial, developed during the **USPGameDev 2025.2 training program** at USP.
 
-Original repository: [GitLab](https://gitlab.com/uspgamedev/treinamento/2025-2-corsinha)
-
 Worked in a team of 3 (1 mentor + 2 collaborators). The base game was provided by the training. All features listed below were my individual contributions.
 
 ### Technical Highlights
@@ -39,14 +37,13 @@ disappear automatically and are collected on player contact
 
 ### About
 Developed during USPGameDev's 2025.2 training program at USP.
+Original repository: [GitLab](https://gitlab.com/uspgamedev/treinamento/2025-2-corsinha)
 
 ---
 
 ## Português
 
 Modificações no tutorial [Dodge the Creeps](https://docs.godotengine.org/en/stable/getting_started/first_2d_game/index.html) do Godot, desenvolvidas durante o **treinamento USPGameDev 2025.2** na USP.
-
-Repositório original: [GitLab](https://gitlab.com/uspgamedev/treinamento/2025-2-corsinha)
 
 Projeto desenvolvido em equipe de 3 pessoas (1 mentor + 2 colaboradores). O jogo base foi fornecido pelo treinamento. Todas as funcionalidades listadas abaixo foram contribuições individuais minhas.
 
@@ -74,3 +71,4 @@ remoção automática e coleta por contato
 
 ### Sobre
 Desenvolvido durante o treinamento 2025.2 da USPGameDev na USP.
+Repositório original: [GitLab](https://gitlab.com/uspgamedev/treinamento/2025-2-corsinha)
