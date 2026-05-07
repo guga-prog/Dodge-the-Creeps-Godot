@@ -37,6 +37,7 @@ disappear automatically and are collected on player contact
 
 ### About
 Developed during USPGameDev's 2025.2 training program at USP.
+
 Original repository: [GitLab](https://gitlab.com/uspgamedev/treinamento/2025-2-corsinha)
 
 ---
@@ -71,4 +72,5 @@ remoção automática e coleta por contato
 
 ### Sobre
 Desenvolvido durante o treinamento 2025.2 da USPGameDev na USP.
+
 Repositório original: [GitLab](https://gitlab.com/uspgamedev/treinamento/2025-2-corsinha)
