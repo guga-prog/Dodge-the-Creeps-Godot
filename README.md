@@ -19,8 +19,8 @@ Worked in a team of 3 (1 mentor + 2 collaborators). The base game was provided b
 (coin collection and boss fight) each controlled by an independent timer. 
 The boss fight phase was partially implemented — stage transition and timer logic 
 were completed but the boss mechanics remained unfinished due to time constraints.
-- **Non-uniform spawn distribution** — implemented a weighted random algorithm 
-so coins spawn more frequently in the center of the map and less on the edges
+- **Non-uniform spawn distribution** — defined a central rectangle by pixel intervals 
+with a higher probability of coin spawning inside it compared to the outer area
 - **Coin lifecycle system** — coins spawn on the map, have a limited lifetime, 
 disappear automatically and are collected on player contact
 
@@ -54,8 +54,8 @@ distintas do jogo (coleta de moedas e boss fight), cada uma controlada por um
 cronômetro independente. A fase de boss fight foi parcialmente implementada — 
 a transição de fases e a lógica do cronômetro foram concluídas, mas a mecânica 
 do boss ficou incompleta por limitações de tempo
-- **Distribuição de spawn não uniforme** — algoritmo de aleatoriedade ponderada 
-para spawn de moedas com frequência maior no centro do mapa
+- **Distribuição de spawn não uniforme** — defini um retângulo central por intervalos 
+de pixels com probabilidade maior de spawn de moedas dentro dele em relação à área externa
 - **Sistema de ciclo de vida das moedas** — spawn, tempo de vida limitado, 
 remoção automática e coleta por contato
 
