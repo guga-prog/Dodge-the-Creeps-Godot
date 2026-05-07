@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://cl75i0rweigvd"]
+
+[ext_resource type="Script" path="res://coin.gd" id="1_0t63x"]
+[ext_resource type="Texture2D" uid="uid://ca2ehcc8fh3w1" path="res://art/coin.png" id="1_d5gmh"]
+[ext_resource type="Texture2D" uid="uid://cf1l8xjdvdia1" path="res://art/coinGlow_1.png" id="3_o4fra"]
+[ext_resource type="Texture2D" uid="uid://cm7g61cyiuhb5" path="res://art/coinGlow_2.png" id="4_te2np"]
+[ext_resource type="Texture2D" uid="uid://ff73ro5wyqow" path="res://art/coinGlow_3.png" id="5_m1j4n"]
+[ext_resource type="Texture2D" uid="uid://le5i08gpcf4l" path="res://art/coinGlow_4.png" id="6_v1mwu"]
+[ext_resource type="Texture2D" uid="uid://bugsfbakxnqv5" path="res://art/coinGlow_5.png" id="7_uf4yh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0t63x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_d5gmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o4fra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_te2np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m1j4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v1mwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uf4yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_d5gmh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qpsl"]
+radius = 32.01562
+
+[node name="Coin" type="StaticBody2D" groups=["coins"]]
+script = ExtResource("1_0t63x")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.66893e-06, -2.3841858e-07)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_0t63x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6qpsl")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-45, -42)
+rect = Rect2(13, 10, 64, 64)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Sumir" type="Timer" parent="."]
+wait_time = 4.042000000000001
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Sumir" to="." method="_on_sumir_timeout"]

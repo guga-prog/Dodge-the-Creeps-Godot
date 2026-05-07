@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://c24513vssksxo"]
+
+[ext_resource type="PackedScene" uid="uid://bnppo5gojleiv" path="res://boss/boss.tscn" id="1_1shti"]
+[ext_resource type="Shader" uid="uid://cghu2oh4yleay" path="res://shaders/change_colors.res" id="2_8h2uf"]
+[ext_resource type="Texture2D" uid="uid://dun74wipekpfq" path="res://art/enemyFlyingAlt_1.png" id="2_vynql"]
+[ext_resource type="Texture2D" uid="uid://vusf51hepduk" path="res://art/enemyFlyingAlt_2.png" id="3_8h2uf"]
+[ext_resource type="Texture2D" uid="uid://d182mv7y80xqy" path="res://art/enemySwimming_1.png" id="4_ymgf6"]
+[ext_resource type="Texture2D" uid="uid://dmgglhdyowipd" path="res://art/enemySwimming_2.png" id="5_y70ew"]
+[ext_resource type="Texture2D" uid="uid://dgwhuvn7qb4iy" path="res://art/enemyWalking_1.png" id="6_o0l4c"]
+[ext_resource type="Texture2D" uid="uid://dyw702efe6meu" path="res://art/enemyWalking_2.png" id="7_fpiii"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvjvq"]
+radius = 64.0
+height = 176.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymgf6"]
+shader = ExtResource("2_8h2uf")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i5j36"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vynql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8h2uf")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ymgf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y70ew")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_o0l4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fpiii")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 4.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_1shti"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Boss2" instance=ExtResource("1_1shti")]
+
+[node name="CollisionShape2D" parent="RigidBody2D" index="0"]
+shape = SubResource("CapsuleShape2D_lvjvq")
+
+[node name="BulletTimer" parent="RigidBody2D" index="1"]
+wait_time = 1.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" index="2"]
+material = SubResource("ShaderMaterial_ymgf6")
+position = Vector2(2.3841858e-07, 3.8146973e-06)
+rotation = -1.5707964
+scale = Vector2(1.3333334, 1.3333334)
+sprite_frames = SubResource("SpriteFrames_i5j36")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="Path2D" parent="." index="1"]
+curve = SubResource("Curve2D_1shti")
+
+[node name="PathFollow2D" parent="Path2D" index="0"]
+position = Vector2(0, 0)

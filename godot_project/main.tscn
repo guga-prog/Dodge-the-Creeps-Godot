@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://bggkaprn62fwm"]
+
+[ext_resource type="Script" uid="uid://c4wt6ace7hycd" path="res://main.gd" id="1_0r6n5"]
+[ext_resource type="PackedScene" uid="uid://cao351pllxqpa" path="res://mob.tscn" id="2_50pww"]
+[ext_resource type="PackedScene" uid="uid://bwhlkliwp13p4" path="res://player.tscn" id="3_veqnc"]
+[ext_resource type="PackedScene" uid="uid://b0efehuavobda" path="res://hud.tscn" id="4_0qnje"]
+[ext_resource type="PackedScene" uid="uid://cnb4fm2i3m0ob" path="res://boss.tscn" id="4_4c57u"]
+[ext_resource type="AudioStream" uid="uid://sgfduhhw4pno" path="res://art/House In a Forest Loop.ogg" id="5_55d8h"]
+[ext_resource type="AudioStream" uid="uid://td2mgko63p61" path="res://art/gameover.wav" id="6_hp1r0"]
+[ext_resource type="AudioStream" uid="uid://dp0hhfj450anx" path="res://art/Spawn.wav" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cl75i0rweigvd" path="res://coin.tscn" id="8_kek77"]
+[ext_resource type="AudioStream" uid="uid://db50ymwni58g6" path="res://art/Move.wav" id="9_kek77"]
+
+[sub_resource type="Curve2D" id="1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 641, 2, 0, 0, 0, 0, 641, 962, 0, 0, 0, 0, 2, 960, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(318.5, 480.5)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_0r6n5")
+mob_scene = ExtResource("2_50pww")
+coin_scene = ExtResource("8_kek77")
+boss_scene = ExtResource("4_4c57u")
+metadata/_edit_vertical_guides_ = [-393.0, -453.0]
+metadata/_edit_horizontal_guides_ = [-81.0, 985.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_right = 1.9900001
+anchor_bottom = 1.9360001
+offset_top = 2.0
+offset_right = -313.20007
+offset_bottom = -433.92004
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.219608, 0.372549, 0.380392, 1)
+
+[node name="Player" parent="." instance=ExtResource("3_veqnc")]
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="CoinTimer" type="Timer" parent="."]
+
+[node name="PhaseTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(323, 481)
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("1")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+
+[node name="HUD" parent="." instance=ExtResource("4_0qnje")]
+node_path = NodePath("../PhaseTimer")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_55d8h")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hp1r0")
+
+[node name="SpawnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5vw27")
+volume_db = 12.55
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_kek77")
+
+[node name="CoinSpawnArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinSpawnArea"]
+position = Vector2(320, 478)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_272bh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.75, 0.75)
+
+[connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="hit_coin" from="Player" to="." method="_on_player_hit_coin"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="CoinTimer" to="." method="_on_CoinTimer_timeout"]
+[connection signal="timeout" from="PhaseTimer" to="." method="_on_phase_timer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]

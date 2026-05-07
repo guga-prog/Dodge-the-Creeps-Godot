@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk2g8tphaqigj"]
+
+[ext_resource type="PackedScene" uid="uid://bnppo5gojleiv" path="res://boss/boss.tscn" id="1_j7gid"]
+
+[sub_resource type="Curve2D" id="Curve2D_j7gid"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 64, 448, 0, 0, 0, 0, 64, 64, 0, 0, 0, 0, 448, 448, 0, 0, 0, 0, 64, 448)
+}
+point_count = 4
+
+[node name="Boss" instance=ExtResource("1_j7gid")]
+
+[node name="Path2D" parent="." index="1"]
+curve = SubResource("Curve2D_j7gid")
