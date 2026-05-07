@@ -1,14 +1,18 @@
 # 🎮 Dodge the Creeps — USPGameDev Training
 
 > 🇧🇷 [Português](#português) | 🇺🇸 [English](#english)
+
 <div align="center">
   <img width="482" height="752" alt="Dodge_The_Creeps" src="https://github.com/user-attachments/assets/01c26f6b-6472-428a-aeb2-81b165aa51cd" />
 </div>
+
 ---
 
 ## English
 
 Modifications to the [Dodge the Creeps](https://docs.godotengine.org/en/stable/getting_started/first_2d_game/index.html) Godot tutorial, developed during the **USPGameDev 2025.2 training program** at USP.
+
+Original repository: [GitLab](https://gitlab.com/uspgamedev/treinamento/2025-2-corsinha)
 
 Worked in a team of 3 (1 mentor + 2 collaborators). The base game was provided by the training. All features listed below were my individual contributions.
 
@@ -41,6 +45,8 @@ Developed during USPGameDev's 2025.2 training program at USP.
 ## Português
 
 Modificações no tutorial [Dodge the Creeps](https://docs.godotengine.org/en/stable/getting_started/first_2d_game/index.html) do Godot, desenvolvidas durante o **treinamento USPGameDev 2025.2** na USP.
+
+Repositório original: [GitLab](https://gitlab.com/uspgamedev/treinamento/2025-2-corsinha)
 
 Projeto desenvolvido em equipe de 3 pessoas (1 mentor + 2 colaboradores). O jogo base foi fornecido pelo treinamento. Todas as funcionalidades listadas abaixo foram contribuições individuais minhas.
 
