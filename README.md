@@ -60,7 +60,7 @@ de pixels com probabilidade maior de spawn de moedas dentro dele em relação à
 remoção automática e coleta por contato
 
 ### Minhas Contribuições
-- 🔄 Alternância de estágios com cronômetros independentes e spawn de boss por fase (fase do boss parcialmente implantada)
+- 🔄 Alternância de estágios com cronômetros independentes e spawn de boss por fase (fase do boss parcialmente implementada)
 - 🪙 Sistema de moedas com spawn, tempo de vida, coleta e pontuação
 - 📍 Distribuição de probabilidade não uniforme no spawn
 - 🔊 Efeitos sonoros do jogador (nascer, locomover, morrer)
